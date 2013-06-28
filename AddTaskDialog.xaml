@@ -1,0 +1,63 @@
+﻿<Window x:Class="ADO_ToDoList.AddTaskDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавить задание" Width="320" Height="260" ResizeMode="NoResize"
+        xmlns:w="clr-namespace:ADO_ToDoList">
+    <Window.Resources>
+        <Style x:Key="labelStyle" TargetType="{x:Type Label}">
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+        <Style x:Key="inputStyle" TargetType="{x:Type Control}">
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
+        <Style TargetType="{x:Type DatePickerTextBox}">
+            <Setter Property="IsReadOnly" Value="True" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90" />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+        <Label Content="Название" Style="{StaticResource labelStyle}" />
+        <Label Grid.Row="1"  Content="Описание" Style="{StaticResource labelStyle}" />
+        <Label Grid.Row="2" Content="Выполнить от" Style="{StaticResource labelStyle}" />
+        <Label Grid.Row="3" Content="До" Style="{StaticResource labelStyle}" />
+        <Label Grid.Row="4" Content="Приоритет" Style="{StaticResource labelStyle}" />
+        
+        <TextBox Grid.Column="1" Name="tbTitle"
+                 
+                 Style="{StaticResource inputStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="1"  Name="tbDescription" Style="{StaticResource inputStyle}"/>
+        
+        <DatePicker Grid.Row="2" Grid.Column="1" 
+                    Name="datepickerStartDate" Style="{StaticResource inputStyle}"/>
+        <DatePicker Grid.Row="3" Grid.Column="1"
+                    Name="datepickerDueDate" Style="{StaticResource inputStyle}"/>
+        <Slider Grid.Row="4" Grid.Column="1"
+                Name="sldPriority" Style="{StaticResource inputStyle}"
+                AutoToolTipPlacement="BottomRight"
+                TickPlacement="BottomRight" IsSnapToTickEnabled="True" />
+        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+
+            <Button Name="btnAdd" Click="btnAdd_Click"
+                    Width="120" Content="Добавить" Style="{StaticResource inputStyle}"/>
+            <Button Name="btnCantel" Click="btnCancel_Click" 
+                    Width="120" Content="Отмена" Style="{StaticResource inputStyle}"/>
+        </StackPanel>
+        
+        
+    </Grid>
+</Window>
